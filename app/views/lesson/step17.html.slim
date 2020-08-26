@@ -1,8 +1,7 @@
--if @zaiko > 0
-　p
-    |
-      残り
-    = @zaiko
-      個です。
-else
+- if @zaiko > 0
+   p 
+     |
+       残り #{@zaiko} 個です
+- else
   p 品切れです。
+
