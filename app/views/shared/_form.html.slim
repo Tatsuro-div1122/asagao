@@ -17,7 +17,7 @@ table.attr
       = f.label :sex_2, "女"
   tr
     th = f.label :birthday, "誕生日", for: "member_birthday_li"
-    td = f.date_select :birthday, start_year: 1940, end_year: Time.current.year, user_month_numbers: true
+    td = f.date_select :birthday, start_year: 1940, end_year: Time.current.year, use_month_numbers: true
   tr
     th = f.label :email, "メールアドレス"
     td = f.text_field :email
@@ -26,5 +26,5 @@ table.attr
     td
       = f.check_box :administrator
       = f.label :administrator, "管理者"
-      
+
 
