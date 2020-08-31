@@ -1,0 +1,9 @@
+- @page_title = "会員情報の編集"
+
+h1 = @page_title
+
+.toolbar = link_to "会員の詳細に戻る", @member
+
+= form_for @member do |f|
+  = render "shared/form", f: f
+  div = f.submit
