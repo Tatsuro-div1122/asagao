@@ -1,9 +1,15 @@
 = image_tag "logo.gif", size: "272x48", alt: "Morning Glory"
 
+- if current_member
+  ul.account-menu
+    = menu_link_to current_member.name + "さん", :account
+    = menu_link_to "ログアウト", :session, method: :delete, data: { confirm: "ログアウトしますか？" }
+
 nav.menubar
   ul
     = menu_link_to "TOP", :root
     = menu_link_to "ニュース", :root
     = menu_link_to "ブログ", :root
-    = menu_link_to "会員名簿", :members
-    = menu_link_to "管理ページ", :root
+    - if current_member
+      = menu_link_to "会員名簿", :members
+      = menu_link_to "管理ページ", :root

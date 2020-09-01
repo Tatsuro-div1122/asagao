@@ -5,5 +5,5 @@ h1 = @page_title
 .toolbar = link_to "会員の詳細に戻る", @member
 
 = form_for @member do |f|
-  = render "shared/form", f: f
+  = render "shared/member_form", f: f
   div = f.submit
