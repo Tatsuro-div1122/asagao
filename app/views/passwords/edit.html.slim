@@ -1,0 +1,22 @@
+- @page_title = "パスワードの変更"
+h1 = @page_title
+
+.toolbar
+  = link_to "マイアカウントに戻る", :account
+
+= form_for @member, as: "account", url: :password do |f|
+
+  = render "shared/errors", obj: @member
+
+  table.attr
+    tr
+      th = f.label :current_password
+      td = f.password_field :current_password
+    tr
+      th = f.label :password
+      td = f.password_field :password
+    tr
+      th = f.label :password_confirmation
+      td = f.password_field :password_confirmation
+
+  div = f.submit "変更"

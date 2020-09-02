@@ -22,6 +22,9 @@ class Member < ApplicationRecord
 
   validates :email, email: { allow_blank: true }
 
+  attr_accessor :current_password
+  validates :password, presence: { if: :current_password }
+
   class << self
     def search(query)
       rel = order("number")
