@@ -23,6 +23,10 @@ table.attr
   tr
     th = f.label :email
     td = f.text_field :email
+  - if @member.new_record?
+    tr
+      th = f.label :password, "パスワード"
+      td = f.text_field :password
   tr
   - if controller.kind_of?(MembersController)
       th = Member.human_attribute_name(:administrator)
