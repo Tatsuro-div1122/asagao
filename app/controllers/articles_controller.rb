@@ -2,11 +2,25 @@ class ArticlesController < ApplicationController
   before_action :login_required, except: [:index, :show]
 
   def index
-    @articles = Article.all
+    @articles = Article.order(released_at: :desc)
+
+    @articles = @articles.open_to_the_public unless current_member
+
+    unless current_member&.administrator?
+      @articles = @articles.visible
+    end
   end
 
   def show
-    @article = Article.find(params[:id])
+    articles = Article.all
+
+    articles = articles.open_to_the_public unless current_member
+
+    unless current_member&.administrator?
+      article = articles.visible
+    end
+
+    @article = articles.find(params[:id])
   end
 
   def new
