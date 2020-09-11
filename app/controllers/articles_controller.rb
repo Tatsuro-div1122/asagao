@@ -9,7 +9,10 @@ class ArticlesController < ApplicationController
     unless current_member&.administrator?
       @articles = @articles.visible
     end
+
+    @articles = @articles.page(params[:page]).page(5)
   end
+
 
   def show
     articles = Article.all

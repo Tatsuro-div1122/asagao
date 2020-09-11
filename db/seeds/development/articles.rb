@@ -12,4 +12,13 @@ body =
     expired_at: 2.days.ago.advance(days: idx),
     member_only: (idx % 3 == 0)
   )
+
+0.upto(29) do |idx|
+  Articles.create(
+    title: "Article#{idx+10}",
+    body: "blah, blah, blah...",
+    released_at: 100.days.ago.advance(days: idx),
+    expired_at: nil,
+    member_only: false
+    )
 end
